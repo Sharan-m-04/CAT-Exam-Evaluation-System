@@ -19,6 +19,7 @@ public class ExcelUtils {
 		Object value = format.formatCellValue(sheet.getRow(row).getCell(col));
 		System.out.println(value);		
 	}
+	
 	//TODO: Row count not working
 	public static int getRowCount() throws Exception {
 		int rowCount = sheet.getPhysicalNumberOfRows();
