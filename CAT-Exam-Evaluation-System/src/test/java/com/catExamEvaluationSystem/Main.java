@@ -5,8 +5,9 @@ import utilities.ExcelUtils;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		String path = "./dataset/data.xlsx";
-		
+//		String path = "./dataset/data.xlsx";
+		String path = "D:/Github/CAT-Exam-Evaluation-System/CAT-Exam-Evaluation-System/dataset/data.xlsx";
+
 		//Getting data from Students sheet
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
 //		System.out.println(eu1.getRowCount());
