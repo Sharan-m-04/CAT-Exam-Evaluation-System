@@ -1,10 +1,9 @@
 package utilities;
 
-import java.io.IOException;
-
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.*;
 
 public class ExcelUtils {
 	static XSSFWorkbook workbook;
@@ -14,15 +13,19 @@ public class ExcelUtils {
 		workbook = new XSSFWorkbook(path);
 		sheet = workbook.getSheet(sheetName);
 	}
-	public static void getCellData(int row, int col) throws IOException{
+	public static void getCellData(int row, int col) {
 		DataFormatter format = new DataFormatter();
 		Object value = format.formatCellValue(sheet.getRow(row).getCell(col));
 		System.out.println(value);		
 	}
-	
-	//TODO: Row count not working
-	public static int getRowCount() throws Exception {
-		int rowCount = sheet.getPhysicalNumberOfRows();
+
+	public static int getRowCount() {
+		int rowCount = 0;
+		for (Row row : sheet) {
+			if (row.getPhysicalNumberOfCells() > 0) {
+				rowCount++;
+			}
+		}
 		return rowCount;
 	}
 }
