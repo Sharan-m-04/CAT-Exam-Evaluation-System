@@ -13,10 +13,9 @@ public class ExcelUtils {
 		workbook = new XSSFWorkbook(path);
 		sheet = workbook.getSheet(sheetName);
 	}
-	public static String getCellData(int row, int col) {
+	public static String getCellData(int row, int col) throws Exception{
 		DataFormatter format = new DataFormatter();
-		String value = format.formatCellValue(sheet.getRow(row).getCell(col));
-		return value;
+		return format.formatCellValue(sheet.getRow(row).getCell(col));
 	}
 
 	public static int getRowCount() {
