@@ -4,6 +4,14 @@ import java.util.Scanner;
 import utilities.ExcelUtils;
 
 public class Main {
+	public void readdata() {
+		int rowCount = 0;
+		String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
+		ExcelUtils eu1 = new ExcelUtils(path, "Students");
+		rowCount = eu1.getRowCount();
+		for (int i = 1; i < rowCount; i++)
+			eu1.getCellData(i, 1);
+	}
 	public static void main(String[] args) throws Exception {
 	/*	int rowCount = 0;
 		String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
@@ -20,5 +28,7 @@ public class Main {
 		rowCount = eu2.getRowCount();
 		for (int j = 1; j < rowCount; j++)
 			eu2.getCellData(j, 1);*/
+
 	}
 }
+
