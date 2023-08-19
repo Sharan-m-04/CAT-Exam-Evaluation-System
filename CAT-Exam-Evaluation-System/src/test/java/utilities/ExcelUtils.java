@@ -13,10 +13,10 @@ public class ExcelUtils {
 		workbook = new XSSFWorkbook(path);
 		sheet = workbook.getSheet(sheetName);
 	}
-	public static void getCellData(int row, int col) {
+	public static String getCellData(int row, int col) {
 		DataFormatter format = new DataFormatter();
-		Object value = format.formatCellValue(sheet.getRow(row).getCell(col));
-		System.out.println(value);		
+		String value = format.formatCellValue(sheet.getRow(row).getCell(col));
+		return value;
 	}
 
 	public static int getRowCount() {
