@@ -1,17 +1,26 @@
 package com.catExamEvaluationSystem;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import utilities.ExcelUtils;
 
 public class Main {
 		static String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
 	public void readData() throws Exception {
+		Scanner sc = new Scanner(System.in);
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
-		int rowCount = ExcelUtils.getRowCount();
-		String[] names = new String[rowCount];
-		for (int i = 1; i < rowCount; i++){
+		ExcelUtils eu2 = new ExcelUtils(path, "Answers");
+		int sRowCount = ExcelUtils.getRowCount();
+		int aRowCount = ExcelUtils.getRowCount();
+		String[] names = new String[sRowCount];
+		String[] userAns = new String[aRowCount];
+		for (int i = 1; i < sRowCount; i++){
 			names[i] = ExcelUtils.getCellData(i, 1);
 			System.out.println("Enter " + names[i] + "'s answers: ");
+			userAns[i] = sc.next();
+		}
+		for (int i = 1; i < sRowCount; i++){
+			System.out.println(names[i]+"'s answers"+userAns[i]);
 		}
 	}
 	public static void main(String[] args) throws Exception {
