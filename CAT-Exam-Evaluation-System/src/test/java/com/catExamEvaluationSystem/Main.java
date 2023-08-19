@@ -7,12 +7,13 @@ public class Main {
 	static String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
 	public void readData() throws Exception {
 		Scanner sc = new Scanner(System.in);
-		int sRowCount = ExcelUtils.getRowCount();
-		int aRowCount = ExcelUtils.getRowCount();
+		ExcelUtils eu1 = new ExcelUtils(path, "Students");
+		int sRowCount = eu1.getRowCount();
+		int aRowCount = eu1.getRowCount();
 		String[] names = new String[sRowCount];
 		String[] userAns = new String[aRowCount];
 		for (int i = 1; i < sRowCount; i++){
-			names[i] = ExcelUtils.getCellData(i, 1);
+			names[i] = eu1.getCellData(i, 1);
 			System.out.println("Enter " + names[i] + "'s answers: ");
 			userAns[i] = sc.next();
 		}
