@@ -48,24 +48,31 @@ public class Main {
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
 		int sRowCount = eu1.getRowCount();
 		int[] sum = new int[sRowCount];
-		String[] str1 = readData();
-//		String[] str1 = {"aa--cdcba-", "dbc-cba--a", "daccbbc-b-","-acdb--bac", "bcab--d-a-","-cb-aadbcc","a--b-dc-cd","dc-cb--aab","abd-bc-cca","-cdbcaad-b","bcd-aabdc-","caa-dc-cb-","-dbac-dcba","b-a-cd-bac","abcd--bacd","-d-cadbcab","cda--b--bc","aabddbc-a-","bcb-da--ac","dc-abcdb-a","-abaccd-bd","c-ba--adbc","c--adba-cb","b-cad-a--b","dc-ba--cab"};
+		//String[] str1 = readData();
+		/*System.out.println(str1[0]);
+		System.out.println(str1[1]);
+		System.out.println(str1[25]);*/
+		String[] str1 = {"aa--cdcba-", "dbc-cba--a", "daccbbc-b-","-acdb--bac", "bcab--d-a-","-cb-aadbcc","a--b-dc-cd","dc-cb--aab","abd-bc-cca","-cdbcaad-b","bcd-aabdc-","caa-dc-cb-","-dbac-dcba","b-a-cd-bac","abcd--bacd","-d-cadbcab","cda--b--bc","aabddbc-a-","bcb-da--ac","dc-abcdb-a","-abaccd-bd","c-ba--adbc","c--adba-cb","b-cad-a--b","dc-ba--cab"};
 		String str2 = keyAnswer();
-		for(int i = 0; i < str1.length; i++){
-			for(int j = 0; j < str2.length(); j++){
-				if(str1[i].charAt(j) == str2.charAt(j)) {
-					sum[i] += 3;
-				}
-				else if (str1[i].charAt(j) == '-'){
-					sum[i] += 0;
-				}
-				else {
-					sum[i] -= 1;
+		try {
+			for (int i = 0; i < str1.length; i++) {
+				for (int j = 0; j < str2.length(); j++) {
+					System.out.println(str1[i]);
+					if (str1[i].charAt(j) == str2.charAt(j)) {
+						sum[i] += 3;
+					} else if (str1[i].charAt(j) == '-') {
+						sum[i] += 0;
+					} else {
+						sum[i] -= 1;
+					}
 				}
 			}
+			for (int i = 0; i < sRowCount; i++)
+				System.out.println(i + 1 + "\t" + sum[i]);
 		}
-		for(int i = 0; i <sRowCount; i++)
-			System.out.println(i + 1 + "\t" + sum[i]);
+		catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
