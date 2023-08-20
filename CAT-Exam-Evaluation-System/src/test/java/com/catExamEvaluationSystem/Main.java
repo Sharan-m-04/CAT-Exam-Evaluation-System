@@ -1,35 +1,59 @@
 package com.catExamEvaluationSystem;
 
+import java.lang.String;
+import java.util.Arrays;
 import java.util.Scanner;
 import utilities.ExcelUtils;
 
 public class Main {
 	static String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
 	Scanner sc = new Scanner(System.in);
-	public int readData() throws Exception {
-		
+	public String[] readData() throws Exception {
+
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
 		int sRowCount = eu1.getRowCount();
 		int aRowCount = eu1.getRowCount();
 		String[] names = new String[sRowCount];
 		String[] userAns = new String[aRowCount];
-		for (int i = 1; i < sRowCount; i++){
+		for (int i = 1; i < sRowCount; i++) {
 			names[i] = eu1.getCellData(i, 1);
 			System.out.println("Enter " + names[i] + "'s answers: ");
 			userAns[i] = sc.next();
 		}
-
 		//For debugging
 		/*for (int j = 1; j < sRowCount; j++){
 			System.out.println(names[j] + "'s answers: " + userAns[j]);
 		}*/
-	public void calPercentile() {
-		int i = 0;
+		return userAns;
+	}
+//	public static String toString(char[] a)
+//	{
+//		String string = new String(a);
+//		return string;
+//	}
+	public void calcPercentile() throws Exception {
+		Scanner sc = new Scanner(System.in);
 		ExcelUtils eu2 = new ExcelUtils(path, "Answers");
+		int aRowCount = eu2.getRowCount();
+		String[] keyAns = new String[aRowCount];
+		String keyAnsStr = "";
+		for(int i = 1; i < aRowCount; i++){
+			keyAns[i] = eu2.getCellData(i, 1);
+//			keyAnsStr = new String[]{keyAns.toString()};
+//			keyAnsStr = new String[]{String.join("", keyAns)};
+			keyAnsStr += keyAns[i];
+		}
+		System.out.println(keyAnsStr);
 	}
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
-		obj.readData();
+//		obj.readData();
+		obj.calcPercentile();
+
+
+
+
+
 	/*	int rowCount = 0;
 		String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
 
