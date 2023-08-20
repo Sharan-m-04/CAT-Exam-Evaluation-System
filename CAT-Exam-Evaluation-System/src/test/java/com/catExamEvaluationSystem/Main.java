@@ -5,8 +5,9 @@ import utilities.ExcelUtils;
 
 public class Main {
 	static String path = "./CAT-Exam-Evaluation-System/dataset/data.xlsx";
-	public void readData() throws Exception {
-		Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
+	public int readData() throws Exception {
+		
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
 		int sRowCount = eu1.getRowCount();
 		int aRowCount = eu1.getRowCount();
@@ -17,12 +18,14 @@ public class Main {
 			System.out.println("Enter " + names[i] + "'s answers: ");
 			userAns[i] = sc.next();
 		}
-		/*
+
 		//For debugging
-		for (int j = 1; j < sRowCount; j++){
+		/*for (int j = 1; j < sRowCount; j++){
 			System.out.println(names[j] + "'s answers: " + userAns[j]);
-		}
-		*/
+		}*/
+	public void calPercentile() {
+		int i = 0;
+		ExcelUtils eu2 = new ExcelUtils(path, "Answers");
 	}
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
