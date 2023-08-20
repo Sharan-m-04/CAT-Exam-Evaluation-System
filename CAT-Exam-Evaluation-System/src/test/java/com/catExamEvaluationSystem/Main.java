@@ -31,8 +31,8 @@ public class Main {
 //		String string = new String(a);
 //		return string;
 //	}
-	public void calcPercentile() throws Exception {
-		Scanner sc = new Scanner(System.in);
+	public String keyAnswer() throws Exception {
+
 		ExcelUtils eu2 = new ExcelUtils(path, "Answers");
 		int aRowCount = eu2.getRowCount();
 		String[] keyAns = new String[aRowCount];
@@ -43,12 +43,20 @@ public class Main {
 //			keyAnsStr = new String[]{String.join("", keyAns)};
 			keyAnsStr += keyAns[i];
 		}
-		System.out.println(keyAnsStr);
+		return keyAnsStr;
+	}
+	public Float calPercentile() throws Exception {
+		int i=0, sum=0;
+		String[]  str1 = readData();
+		String  str2 = keyAnswer();
+		if(str1[i]==str2[i]) {
+			sum+=3;
+		}
 	}
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
 //		obj.readData();
-		obj.calcPercentile();
+		obj.keyAnswer();
 
 
 
