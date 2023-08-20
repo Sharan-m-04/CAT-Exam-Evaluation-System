@@ -32,7 +32,6 @@ public class Main {
 //		return string;
 //	}
 	public String keyAnswer() throws Exception {
-
 		ExcelUtils eu2 = new ExcelUtils(path, "Answers");
 		int aRowCount = eu2.getRowCount();
 		String[] keyAns = new String[aRowCount];
@@ -45,7 +44,7 @@ public class Main {
 		}
 		return keyAnsStr;
 	}
-	public Float calPercentile() throws Exception {
+	public void calcPercentile() throws Exception {
 		int i=0, sum=0;
 		String[]  str1 = readData();
 		String  str2 = keyAnswer();
