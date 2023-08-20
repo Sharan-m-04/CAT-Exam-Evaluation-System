@@ -61,7 +61,6 @@ public class Main {
 
 //		String[] str2 = new String[aRowCount];
 //		str2[0] = keyAnswer();
-//		try {
 			for (int i = 1; i < str1.length; i++) {
 				for (int j = 0; j < str2.length(); j++) {
 //					System.out.println(str1[i]);
@@ -76,11 +75,11 @@ public class Main {
 			}
 			for (int i = 0; i < sRowCount; i++)
 				System.out.println(i + "\t" + sum[i]);
+			//TODO: Scoring system is done, so we have to sort the sum[] in descending order and calculate the percentile.
+			//TODO: Percentile formula: CAT Percentile= [1- (Respective Rank in CAT exam/Total no. of CAT candidates)] * 100
+			//TODO: Finally we have to display the student name {\t} and respective percentile
 		}
-//		catch(Exception e) {
-//			System.out.println(e);
-//		}
-//	}
+
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
 //		obj.readData();
