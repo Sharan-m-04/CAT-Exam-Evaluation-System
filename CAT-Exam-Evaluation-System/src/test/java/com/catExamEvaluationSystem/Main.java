@@ -46,6 +46,7 @@ public class Main {
 		ExcelUtils eu1 = new ExcelUtils(path, "Students");
 		int sRowCount = eu1.getRowCount();
 		int[] sum = new int[sRowCount];
+		String[] names = new String[sRowCount];
 		String[] str1 = readData();
 		String str2 = keyAnswer();
 
@@ -61,24 +62,53 @@ public class Main {
 
 //		String[] str2 = new String[aRowCount];
 //		str2[0] = keyAnswer();
-			for (int i = 1; i < str1.length; i++) {
-				for (int j = 0; j < str2.length(); j++) {
+		for (int i = 1; i < str1.length; i++) {
+			for (int j = 0; j < str2.length(); j++) {
 //					System.out.println(str1[i]);
-					if (str1[i].charAt(j) == str2.charAt(j)) {
-						sum[i] += 3;
-					} else if (str1[i].charAt(j) == '-') {
-						sum[i] += 0;
-					} else {
-						sum[i] -= 1;
-					}
+				if (str1[i].charAt(j) == str2.charAt(j)) {
+					sum[i] += 3;
+				} else if (str1[i].charAt(j) == '-') {
+					sum[i] += 0;
+				} else {
+					sum[i] -= 1;
 				}
 			}
-			for (int i = 0; i < sRowCount; i++)
-				System.out.println(i + "\t" + sum[i]);
-			//TODO: Scoring system is done, so we have to sort the sum[] in descending order and calculate the percentile.
-			//TODO: Percentile formula: CAT Percentile= [1- (Respective Rank in CAT exam/Total no. of CAT candidates)] * 100
-			//TODO: Finally we have to display the student name {\t} and respective percentile
 		}
+		int[] rank = getRank(sum);
+		//Debugging
+//		ExcelUtils eu = new ExcelUtils(path, "Students");
+//			for (int i = 1; i < sRowCount; i++) {
+//				names[i] = eu.getCellData(i, 1);
+//				System.out.println(i + "\t\t" + names[i] + "\t\t" + sum[i]);
+//			}
+		//TODO: Percentile formula: CAT Percentile= [1- (Respective Rank in CAT exam/Total no. of CAT candidates)] * 100
+		//TODO: Finally we have to display the student name {\t} and respective percentile
+	}
+	public int[] getRank(int[] marks) throws Exception{
+		int[] ranks = new int[marks.length];
+		for(int i = 0; i < marks.length; i++){
+			int rank = 1;
+			for(int j = 0; j < marks.length; j++){
+				if (marks[j] > marks[i]) {
+					rank++;
+				}
+			}
+			ranks[i] = rank;
+		}
+		ExcelUtils eu = new ExcelUtils(path, "Students");
+		int sRowCount = eu.getRowCount();
+		String[] names = new String[sRowCount];
+		for (int i = 1; i < sRowCount; i++) {
+			names[i] = eu.getCellData(i, 1);
+//			System.out.println(i + "\t\t" + names[i] + "\t\t" + marks[i] + "\t\t" + ranks[i]);
+			System.out.println(marks[i] + "\t\t" + ranks[i]);
+		}
+//		System.out.println("\n");
+//		for(int i = 0; i < sRowCount; i++){
+//			System.out.print(ranks[i] + "\t");
+//		}
+		return ranks;
+	}
 
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
