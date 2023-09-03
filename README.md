@@ -21,17 +21,18 @@ A mini project on "CAT Exam Evaluation System". This project encompasses the cre
 ### Installation <a name="installation"></a>
 
 1. Clone the repository:
-   ```sh
-   git clone https://github.com/Sharan-m-04/CAT-Exam-Evaluation-System.git
-  
+```sh
+git clone https://github.com/Sharan-m-04/CAT-Exam-Evaluation-System.git
+```
 2. Build project using Maven:
-  ```sh
-  cd CAT-Exam-Evaluation-System
-  mvn clean install
-  ```
+```sh
+cd CAT-Exam-Evaluation-System
+mvn clean install
+```
 3. Run the application:
-   ```sh
-   java -jar target/CAT-Exam-Evaluation-System-0.0.1-SNAPSHOT.jar
+```sh
+java -jar target/CAT-Exam-Evaluation-System-0.0.1-SNAPSHOT.jar
+```
 ## 2. Usage <a name="usage"></a>
 1. Place your exam data in an Excel file following the structure mentioned in the code (`data.xlsx` in the `dataset` directory).
 2. Modify the code if necessary to match your Excel file's format.
