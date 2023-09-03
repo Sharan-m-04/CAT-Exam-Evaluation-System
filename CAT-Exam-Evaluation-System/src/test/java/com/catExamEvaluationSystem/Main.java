@@ -83,8 +83,8 @@ public class Main {
 	}
 	public static void main(String[] args) throws Exception {
 		Main obj = new Main();
-		int[] rank = obj.calcMarks();
-		obj.calcPercentile(rank);
+		int[] marks = obj.calcMarks();
+		obj.calcPercentile(marks);
 	}
 }
 
