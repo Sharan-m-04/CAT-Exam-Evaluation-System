@@ -1,5 +1,5 @@
 # CAT Exam Evaluation System
-A mini project on "CAT Exam Evaluation System". This project encompasses the creation of an Excel dataset to capture student information and incorporates MCQ-format question and answer data to calculate percentile. Throughout the development process, valuable insights into the CAT exam structure and scoring mechanisms were acquired. This is a Java-based application for evaluating CAT (Common Admission Test) exam results. It reads student responses and answer keys from an Excel file, calculates scores, ranks, and percentiles, and displays the results.
+A mini project on "CAT Exam Evaluation System". This is a Java-based application for evaluating CAT (Common Admission Test) exam results. It reads student responses and answer keys from an Excel file, calculates scores, ranks, and percentiles, and displays the results.
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
